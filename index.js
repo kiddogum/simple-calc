@@ -25,22 +25,22 @@ maths.forEach((math) => {
 equal.addEventListener("click", () => {
   if (value.includes("/")) {
     const array = value.split("/");
-    result = parseFloat(array[0] / array[1]).toFixed(2);
+    result = Math.trunc((array[0] / array[1]) * 100) / 100;
     show.value = result;
     value = result;
   } else if (value.includes("*")) {
     const array = value.split("*");
-    result = parseFloat(array[0] * array[1]).toFixed(2);
+    result = Math.trunc(array[0] * array[1] * 100) / 100;
     show.value = result;
     value = result;
   } else if (value.includes("-")) {
     const array = value.split("-");
-    result = parseFloat(array[0] - array[1]).toFixed(2);
+    result = Math.trunc((array[0] - array[1]) * 100) / 100;
     show.value = result;
     value = result;
   } else if (value.includes("+")) {
     const array = value.split("+");
-    result = parseFloat(parseFloat(array[0]) + parseFloat(array[1])).toFixed(2);
+    result = Math.trunc((parseInt(array[0]) + parseInt(array[1])) * 100) / 100;
     show.value = result;
     value = result;
   }
@@ -50,6 +50,7 @@ backspace.addEventListener("click", () => {
   value = value.substring(0, value.length - 1);
   show.value = value;
 });
+
 c.addEventListener("click", () => {
   value = "";
   show.value = value;
